@@ -33,6 +33,32 @@ class Program
                     positions += (i + 1) + " ";
                 }
             }
+            if (!found)
+            {
+                attemptsLeft--;
+                Console.WriteLine("Неправильна відповідь! Залишилось спроб: " + attemptsLeft);
+            }
+            else
+            {
+                Console.WriteLine("Така літера є у слові! Позиція літери: " + positions.Trim());
+            }
+
+            Console.WriteLine("Поточне слово: " + new string(guessedWord));
+            Console.WriteLine();
+
+            if (new string(guessedWord) == secretWord)
+            {
+                Console.WriteLine("Вітаємо! Ви відгадали слово: " + secretWord);
+                break;
+            }
         }
+
+        if (attemptsLeft == 0)
+        {
+            Console.WriteLine("Ви програли! Загадане слово було: " + secretWord);
+        }
+
+        Console.WriteLine("Дякуємо за гру!");
     }
+    
 }
